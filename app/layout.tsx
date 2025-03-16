@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import { SideBar } from "@/components/website/sidebar";
+import { Navbar } from "@/components/website/navbar";
+import { ScrollArea } from "@/components/ui/scrollarea";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // SemiBold
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +23,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${poppins.variable} antialiased dark`}>
+        <main className="flex flex-col w-full h-screen">
+          <Navbar />
+          <div className="flex flex-row w-full h-full">
+            <SideBar />
+            <div className="w-[calc(100vw-200px)]">
+              <ScrollArea className="h-[calc(100vh-71px)]">
+                {children}
+              </ScrollArea>
+            </div>
+          </div>
+        </main>
       </body>
     </html>
   );
