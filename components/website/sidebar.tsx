@@ -1,8 +1,7 @@
 "use client";
-import { useState } from "react";
 
 export function SideBar() {
-  const [sideBarData, setSideBarData] = useState([
+  const sideBarData = [
     { href: "/", label: "PHA", key: "pha", isActive: true },
     {
       href: "/",
@@ -12,7 +11,7 @@ export function SideBar() {
     },
     { href: "/", label: "Holdings", key: "holdings", isActive: false },
     { href: "/", label: "Transaction", key: "transaction", isActive: false },
-  ]);
+  ];
   return (
     <div className="w-[200px] bg-[#1B1A1A] text-sm mt-1">
       <div className="flex flex-col text-white p-4 gap-5">

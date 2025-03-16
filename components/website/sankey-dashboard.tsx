@@ -118,7 +118,7 @@ const MutualFundOverlapSankey = () => {
           data={{ nodes, links }}
           margin={{ top: 20, right: 160, bottom: 20, left: 50 }}
           align="justify"
-          colors={(node) => node.color || "#D4F5FF"}
+          colors={() => "#D4F5FF"}
           nodeOpacity={1}
           nodeHoverOpacity={1}
           nodeThickness={20}
@@ -147,22 +147,11 @@ const MutualFundOverlapSankey = () => {
               },
             },
           }}
-          tooltip={({ node, link }) => {
+          nodeTooltip={({ node }) => {
             if (node) {
               return (
                 <div className="bg-gray-800 p-2 rounded shadow text-white text-xs">
                   <strong>{node.id}</strong>
-                </div>
-              );
-            }
-
-            if (link) {
-              return (
-                <div className="bg-gray-800 p-2 rounded shadow text-white text-xs">
-                  <strong>
-                    {link.source} → {link.target}
-                  </strong>
-                  <div>Allocation: {link.value}%</div>
                 </div>
               );
             }

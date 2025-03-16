@@ -1,4 +1,4 @@
-import { ChevronDown, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 type prop = {
   id: number;

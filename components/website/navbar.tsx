@@ -1,10 +1,9 @@
 "use client";
 import { Bell, LogOut, Search, UserRoundCog } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 
 export function Navbar() {
-  const [navbarData, setNavbarData] = useState([
+  const navbarData = [
     {
       href: "/",
       label: "Home",
@@ -35,7 +34,7 @@ export function Navbar() {
       isActive: false,
       key: "transaction",
     },
-  ]);
+  ];
   return (
     <div className="bg-[#1B1A1A] text-sm text-white flex flex-row items-center">
       <div className="w-[200px] ps-10 py-4">

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tab";
 import { DashboardCard } from "@/components/website/dashboard-card";
 import { DashboardLineChart } from "@/components/website/dashboard-line-chart";
@@ -12,7 +12,7 @@ export default function PortfolioDashboard() {
   const duration = { duration: 0.4, ease: "easeInOut" };
 
   const [activeTab, setActiveTab] = useState("metrics");
-  const [cardData, setCardData] = useState([
+  const cardData = [
     {
       id: 1,
       label: "Current Investment Value",
@@ -45,7 +45,7 @@ export default function PortfolioDashboard() {
       returnValue: 5,
       returnDay: "",
     },
-  ]);
+  ];
 
   return (
     <div className="flex flex-col h-screen bg-[#161616] text-white">
@@ -79,6 +79,7 @@ export default function PortfolioDashboard() {
                 animate={animation}
                 transition={{ ...duration, delay: 0.3 * key }}
                 className="h-full"
+                key={key}
               >
                 <DashboardCard portfolioData={val} />
               </motion.div>
